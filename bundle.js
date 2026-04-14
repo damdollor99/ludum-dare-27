@@ -482,7 +482,7 @@
     19: [function(require, module) {
         var createGame = require("./game"),
             canvas = document.getElementById("main");
-        canvas.width = 900, canvas.height = 650, module.exports = createGame(canvas), document.body.appendChild(canvas)
+        canvas.width = 800, canvas.height = 550, module.exports = createGame(canvas), document.body.appendChild(canvas)
     }, {
         "./game": 20
     }],
