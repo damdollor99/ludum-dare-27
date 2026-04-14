@@ -328,7 +328,7 @@
     }],
     16: [function(require, module) {
         function pellet(c) {
-            var pelletMax = 40;
+            var pelletMax = 200;
             return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
@@ -418,7 +418,7 @@
                 fixdef.shape = new b2CircleShape(.49), this.fixture = this.body.CreateFixture(fixdef), this.b2p = new b2Player(this.world, {
                     body: this.body,
                     fixture: this.fixture,
-                    jumpHeight: 25
+                    jumpHeight: 30
                 }), this.b2Pos = this.body.m_xf.position, [-1, 1].forEach(function() {
                     this.left = this.b2p.createSensor([
                         [-.65, -.4],
@@ -451,10 +451,10 @@
                     y = 30 * this.b2p.body.m_xf.position.y - game.camera.pos[1];
                 ctx.save(), ctx.translate(x, y), ctx.rotate(this.rotation), ctx.fillStyle = lighten("#362F34", 0 | 200 * this.flinch), ctx.fillRect(-15 - this.pop, -15 - this.pop, 30 + 2 * this.pop, 30 + 2 * this.pop), ctx.restore()
             }).on("damaged", function() {
-                this.flinch = 1, this.health < 1 && this.game.restart()
+                this.flinch = 1, this.health < -99999 && this.game.restart()
             });
         module.exports = bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/controllable")).use(require("../components/health")(15)).use(player).use(require("../components/vulnerable")(0)).use(require("../components/gravity")), module.exports.prototype.fireBullet = function() {
-            this.shootTimer = 8;
+            this.shootTimer = 2;
             var bullet = new Bullet,
                 tx = this.game.mouse.x - (30 * this.body.m_xf.position.x - this.game.camera.pos[0]),
                 ty = this.game.mouse.y - (30 * this.body.m_xf.position.y - this.game.camera.pos[1]),
@@ -577,7 +577,7 @@
             n = String(Math.floor(n)), this.ctx.drawImage(round, this.width - 200 - 10, this.height - 48 - 16);
             for (var i = 0; i < n.length; i += 1) this.ctx.drawImage(bignumbers[n.charAt(i)], this.width - 36 * n.length + 36 * i - 18, this.height - 24 - 96 - 32)
         }, Game.prototype.restart = function() {
-            this.flash = 5, this.player.health = 15;
+            this.flash = 5, this.player.health = 30;
             var body = this.player.body;
             this.next(function() {
                 body.SetPosition({
@@ -740,7 +740,7 @@
     25: [function(require, module) {
         function Spawner(game) {
             if (!(this instanceof Spawner)) return new Spawner(game);
-            var bombChance = 1,
+            var bombChance = 3,
                 Bomb = require("../entities/bomb").tag("spawned"),
                 EnemyGenerator = require("../components/enemy"),
                 b2Vec2 = require("box2dweb-commonjs").Box2D.Common.Math.b2Vec2;
