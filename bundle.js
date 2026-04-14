@@ -334,13 +334,13 @@
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
                 var fd = new b2FixtureDef;
-                return fd.restitution = .2, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+                return fd.restitution = .8, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
             })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
                 pelletCounter += 1, pelletCounter > pelletMax && (this.flagged = !0), this.c = c, this.t = 140 - (0 | 40 * Math.random())
             }).on("tick", function() {
                 this.t -= 1, this.t || (this.flagged = !0)
             }).on("destroy", function() {
-                pelletCounter -= 0
+                pelletCounter -= 1
             })).use(require("../components/draw-circle")(5)).use(require("../components/gravity"))
         }
         var Box2D = require("box2dweb-commonjs").Box2D,
