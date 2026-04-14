@@ -328,7 +328,7 @@
     }],
     16: [function(require, module) {
         function pellet(c) {
-            var pelletMax = 300;
+            var pelletMax = 500;
             return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
@@ -340,7 +340,7 @@
             }).on("tick", function() {
                 this.t -= 1, this.t || (this.flagged = !0)
             }).on("destroy", function() {
-                pelletCounter -= 1
+                pelletCounter -= 0
             })).use(require("../components/draw-circle")(5)).use(require("../components/gravity"))
         }
         var Box2D = require("box2dweb-commonjs").Box2D,
@@ -482,7 +482,7 @@
     19: [function(require, module) {
         var createGame = require("./game"),
             canvas = document.getElementById("main");
-        canvas.width = 800, canvas.height = 550, module.exports = createGame(canvas), document.body.appendChild(canvas)
+        canvas.width = 900, canvas.height = 650, module.exports = createGame(canvas), document.body.appendChild(canvas)
     }, {
         "./game": 20
     }],
