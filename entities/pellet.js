@@ -12,7 +12,7 @@ module.exports = pellet
 
 var pelletCounter = 0
 function pellet(c) {
-  var pelletMax = 40
+  var pelletMax = 1000
 
   return bs.define()
     .use(require('../components/attached'))
