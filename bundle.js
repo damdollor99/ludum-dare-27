@@ -328,7 +328,7 @@
     }],
     16: [function(require, module) {
         function pellet(c) {
-            var pelletMax = 200;
+            var pelletMax = 300;
             return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
@@ -454,7 +454,7 @@
                 this.flinch = 1, this.health < -99999 && this.game.restart()
             });
         module.exports = bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/controllable")).use(require("../components/health")(15)).use(player).use(require("../components/vulnerable")(0)).use(require("../components/gravity")), module.exports.prototype.fireBullet = function() {
-            this.shootTimer = 2;
+            this.shootTimer = 1;
             var bullet = new Bullet,
                 tx = this.game.mouse.x - (30 * this.body.m_xf.position.x - this.game.camera.pos[0]),
                 ty = this.game.mouse.y - (30 * this.body.m_xf.position.y - this.game.camera.pos[1]),
