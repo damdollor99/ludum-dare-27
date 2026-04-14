@@ -104,10 +104,6 @@ var player = bs.component([
     } else {
       this.rotation = 0
     }
-
-    if (this.shootTimer > 0) {
-      this.shootTimer -= 1
-    } else
     if (this.controls.shoot) {
       this.fireBullet()
     }
