@@ -328,13 +328,13 @@
     }],
     16: [function(require, module) {
         function pellet(c) {
-            var pelletMax = 500;
+            var pelletMax = 1000;
             return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
                 var fd = new b2FixtureDef;
-                return fd.restitution = .8, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+                return fd.restitution = 1, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
             })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
                 pelletCounter += 1, pelletCounter > pelletMax && (this.flagged = !0), this.c = c, this.t = 140 - (0 | 40 * Math.random())
             }).on("tick", function() {
@@ -375,7 +375,7 @@
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = .5, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+            return fd.restitution = 1, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
@@ -482,7 +482,7 @@
     19: [function(require, module) {
         var createGame = require("./game"),
             canvas = document.getElementById("main");
-        canvas.width = 800, canvas.height = 550, module.exports = createGame(canvas), document.body.appendChild(canvas)
+        canvas.width = 900, canvas.height = 650, module.exports = createGame(canvas), document.body.appendChild(canvas)
     }, {
         "./game": 20
     }],
