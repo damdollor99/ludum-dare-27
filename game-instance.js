@@ -1,8 +1,8 @@
 var createGame = require('./game')
 var canvas = document.getElementById('main')
 
-canvas.width = 800
-canvas.height = 550
+canvas.width = 900
+canvas.height = 650
 
 module.exports = createGame(canvas)
 
