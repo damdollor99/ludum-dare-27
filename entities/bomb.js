@@ -26,7 +26,7 @@ module.exports = bs.define()
     },
     function createFixture() {
       var fd = new b2FixtureDef
-      fd.restitution = 0.5
+      fd.restitution = 0.8
       fd.shape = new b2CircleShape(0.5)
       return fd
     }
@@ -55,4 +55,3 @@ module.exports = bs.define()
     })
   )
   .use(require('../components/draw-circle')())
-
