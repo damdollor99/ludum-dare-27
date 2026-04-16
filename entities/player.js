@@ -47,7 +47,7 @@ var player = bs.component([
     this.b2p = new b2Player(this.world, {
         body: this.body
       , fixture: this.fixture
-      , jumpHeight: 25
+      , jumpHeight: 30
     })
 
     this.b2Pos = this.body.m_xf.position
@@ -81,7 +81,7 @@ var player = bs.component([
     this.body.SetActive(true)
     this.body.SetAwake(true)
     this.health = this.health < 0 ? 0
-      : (this.health < 15 ? this.health : 15)
+      : (this.health < 20 ? this.health : 20)
 
     var xspd = this.body.m_linearVelocity.x =
         this.controls.left  && !this.blockedLeft  ? -14
@@ -148,7 +148,7 @@ module.exports = bs.define()
   .use(require('../components/gravity'))
 
 module.exports.prototype.fireBullet = function() {
-  this.shootTimer = 8
+  this.shootTimer = 1
   var bullet = new Bullet
   var tx = this.game.mouse.x - (this.body.m_xf.position.x * 30 - this.game.camera.pos[0])
   var ty = this.game.mouse.y - (this.body.m_xf.position.y * 30 - this.game.camera.pos[1])
