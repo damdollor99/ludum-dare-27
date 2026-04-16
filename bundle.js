@@ -121,7 +121,7 @@
                         center = this.body.m_sweep.c;
                     this.game.next(function() {
                         for (var j = 1; 3 >= j; j += 1)
-                            for (var i = 0; 1 > i; i += .34) {
+                            for (var i = 0; 1.5 > i; i += .34) {
                                 var bullet = new Pellet,
                                     dx = Math.cos(i * tau),
                                     dy = Math.sin(i * tau);
@@ -173,11 +173,11 @@
                             dx = p.x - tx;
                         if (Math.abs(dy) + Math.abs(dx) < 20) {
                             var a = Math.atan2(dy, dx);
-                            tempVec.x = 40 * Math.cos(a), tempVec.y = 40 * Math.sin(a), b.body.ApplyImpulse(tempVec, center), b !== this.game.player ? b.trigger("damaged", 3) : b.health += 2
+                            tempVec.x = 40 * Math.cos(a), tempVec.y = 40 * Math.sin(a), b.body.ApplyImpulse(tempVec, center), b !== this.game.player ? b.trigger("damaged", 3) : b.health += 5
                         }
                     }
                     this.game.next(function() {
-                        for (var i = 0; 1 > i; i += .05) {
+                        for (var i = 0; 1.5 > i; i += .05) {
                             var bullet = new Bullet,
                                 dx = Math.cos(i * tau),
                                 dy = Math.sin(i * tau);
@@ -375,7 +375,7 @@
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = 1, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+            return fd.restitution = 1, fd.shape = new b2CircleShape(.3 / 3), this.r = 5, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
@@ -482,7 +482,7 @@
     19: [function(require, module) {
         var createGame = require("./game"),
             canvas = document.getElementById("main");
-        canvas.width = 900, canvas.height = 650, module.exports = createGame(canvas), document.body.appendChild(canvas)
+        canvas.width = 800, canvas.height = 550, module.exports = createGame(canvas), document.body.appendChild(canvas)
     }, {
         "./game": 20
     }],
@@ -740,7 +740,7 @@
     25: [function(require, module) {
         function Spawner(game) {
             if (!(this instanceof Spawner)) return new Spawner(game);
-            var bombChance = 3,
+            var bombChance = 5,
                 Bomb = require("../entities/bomb").tag("spawned"),
                 EnemyGenerator = require("../components/enemy"),
                 b2Vec2 = require("box2dweb-commonjs").Box2D.Common.Math.b2Vec2;
