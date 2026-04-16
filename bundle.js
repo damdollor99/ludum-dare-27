@@ -334,7 +334,7 @@
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
                 var fd = new b2FixtureDef;
-                return fd.restitution = 1, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+                return fd.restitution = .8, fd.shape = new b2CircleShape(.3 / 3), this.r = 5, fd
             })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
                 pelletCounter += 1, pelletCounter > pelletMax && (this.flagged = !0), this.c = c, this.t = 140 - (0 | 40 * Math.random())
             }).on("tick", function() {
@@ -443,7 +443,7 @@
                     self.blockedRight -= 1
                 }), this.shootTimer = 0
             }).on("tick", function() {
-                this.body.SetActive(!0), this.body.SetAwake(!0), this.health = this.health < 0 ? 0 : this.health < 15 ? this.health : 15;
+                this.body.SetActive(!0), this.body.SetAwake(!0), this.health = this.health < 0 ? 0 : this.health < 20 ? this.health : 20;
                 var xspd = this.body.m_linearVelocity.x = this.controls.left && !this.blockedLeft ? -14 : this.controls.right && !this.blockedRight ? 14 : 0;
                 this.game.ready = this.game.ready || xspd, this.pop *= .95, this.flinch *= .97, this.rotating ? (this.rotation += xspd > 0 ? .18 : 0 > xspd ? -.18 : this.lastangle > 0 ? .18 : -.18, this.lastangle = xspd || this.lastangle) : this.rotation = 0, this.shootTimer > 0 ? this.shootTimer -= 1 : this.controls.shoot && this.fireBullet(), this.controls.jump && this.b2p.jump() && (this.pop += 8), this.rotating = abs(this.body.m_linearVelocity.y) > .2, tempPosition[0] = round(this.b2Pos.x), tempPosition[1] = round(this.b2Pos.y), this.pop = this.pop > 8 ? 8 : this.pop, this.game.field.move(tempPosition)
             }).on("draw", function(ctx, game) {
