@@ -375,7 +375,7 @@
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = 1, fd.shape = new b2CircleShape(.3 / 3), this.r = 5, fd
+            return fd.restitution = .8, fd.shape = new b2CircleShape(.5 / 3), this.r = 3, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
