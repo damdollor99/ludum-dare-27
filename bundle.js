@@ -370,7 +370,7 @@
             b2BodyDef = Box2D.Dynamics.b2BodyDef,
             b2Vec2 = Box2D.Common.Math.b2Vec2,
             b2Body = Box2D.Dynamics.b2Body;
-        module.exports = bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
+        module.exports = bs.define().use(require("../components/attached")).use(require("../components/gravity")).use(require("../components/physical")).use(require("../components/body")(function() {
             var bd = new b2BodyDef;
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
@@ -380,7 +380,7 @@
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
             this.t -= 1, this.t || (this.flagged = !0)
-        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/projectile")).use(require("../components/gravity")({
+        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/gravity")).use(require("../components/projectile")({
             key: "shooter"
         }))
     }, {
