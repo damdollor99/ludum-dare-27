@@ -245,7 +245,7 @@
         module.exports = function(options) {
             return options = options || {}, options.key || "shooter", bs.component("projectile").needs("attached").needs("physical").on("init", function() {
                 var self = this;
-                this.counter = 50, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
+                this.counter = 100, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
                     --self.counter || (self.flagged = !0)
                 })
             })
@@ -329,7 +329,7 @@
     16: [function(require, module) {
         function pellet(c) {
             var pelletMax = 1000;
-            return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
+            return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")).use(require("../components/harmful")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
@@ -380,7 +380,7 @@
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
             this.t -= 1, this.t || (this.flagged = !0)
-        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/gravity")).use(require("../components/projectile")({
+        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/projectile")({
             key: "shooter"
         }))
     }, {
