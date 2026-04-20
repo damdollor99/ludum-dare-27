@@ -329,7 +329,7 @@
     16: [function(require, module) {
         function pellet(c) {
             var pelletMax = 1000;
-            return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")).use(require("../components/harmful")(function() {
+            return bs.define().use(require("../components/attached")).use(require("../components/physical")).use(require("../components/body")(function() {
                 var bd = new b2BodyDef;
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
