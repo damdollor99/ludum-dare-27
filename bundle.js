@@ -380,7 +380,7 @@
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
             this.t -= 1, this.t || (this.flagged = !0)
-        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/gravity")).use(require("../components/projectile")({
+        })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/projectile")).use(require("../components/gravity")({
             key: "shooter"
         }))
     }, {
