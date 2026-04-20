@@ -334,7 +334,7 @@
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
                 var fd = new b2FixtureDef;
-                return fd.restitution = 1, fd.shape = new b2CircleShape(.3 / 3), this.r = 5, fd
+                return fd.restitution = .5, fd.shape = new b2CircleShape(0), this.r = 3, fd
             })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
                 pelletCounter += 1, pelletCounter > pelletMax && (this.flagged = !0), this.c = c, this.t = 140 - (0 | 40 * Math.random())
             }).on("tick", function() {
@@ -740,7 +740,7 @@
     25: [function(require, module) {
         function Spawner(game) {
             if (!(this instanceof Spawner)) return new Spawner(game);
-            var bombChance = 5,
+            var bombChance = 10,
                 Bomb = require("../entities/bomb").tag("spawned"),
                 EnemyGenerator = require("../components/enemy"),
                 b2Vec2 = require("box2dweb-commonjs").Box2D.Common.Math.b2Vec2;
