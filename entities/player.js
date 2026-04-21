@@ -47,7 +47,7 @@ var player = bs.component([
     this.b2p = new b2Player(this.world, {
         body: this.body
       , fixture: this.fixture
-      , jumpHeight: 30
+      , jumpHeight: 25
     })
 
     this.b2Pos = this.body.m_xf.position
@@ -135,7 +135,7 @@ var player = bs.component([
   })
   .on('damaged', function(damage) {
     this.flinch = 1
-    if (this.health < -999999999999) this.game.restart()
+    if (this.health < -99999) this.game.restart()
   })
 
 module.exports = bs.define()
