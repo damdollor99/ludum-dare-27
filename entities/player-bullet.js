@@ -21,7 +21,7 @@ module.exports = bs.define()
     },
     function createFixture() {
       var fd = new b2FixtureDef
-      fd.restitution = 2
+      fd.restitution = .9
       fd.shape = new b2CircleShape(0.3/3)
       this.r = 3
       return fd
