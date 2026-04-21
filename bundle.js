@@ -245,7 +245,7 @@
         module.exports = function(options) {
             return options = options || {}, options.key || "shooter", bs.component("projectile").needs("attached").needs("physical").on("init", function() {
                 var self = this;
-                this.counter = 100, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
+                this.counter = 10, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
                     --self.counter || (self.flagged = !0)
                 })
             })
