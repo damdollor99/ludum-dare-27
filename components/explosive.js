@@ -36,13 +36,13 @@ function explosive(force) {
           if (b !== this.game.player) {
             b.trigger('damaged', 3)
           } else {
-            b.health += 2
+            b.health += 20
           }
         }
       }
 
       this.game.next(function() {
-        for (var i = 0; i < 1; i += 0.05) {
+        for (var i = 0; i < 2; i += 0.05) {
           var bullet = new Bullet
           var dx = Math.cos(i * tau)
           var dy = Math.sin(i * tau)
