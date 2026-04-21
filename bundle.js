@@ -307,7 +307,7 @@
             return bd.position = new b2Vec2(5 * Math.random(), 5 * Math.random() - 5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !1, bd.m_linearDamping = 1, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = 1, fd.shape = new b2CircleShape(.5), fd
+            return fd.restitution = .8, fd.shape = new b2CircleShape(.5), fd
         })).use(require("../components/explosive")(100)).use(bs.component().on("init", function() {
             var self = this;
             this.c = "#362F34", this.r = 15, this.st = 0, b2e(Box2D, this.world).fixture(this.fixture).on("begin", function(a) {
@@ -334,7 +334,7 @@
                 return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
             }, function() {
                 var fd = new b2FixtureDef;
-                return fd.restitution = 2, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
+                return fd.restitution = .9, fd.shape = new b2CircleShape(.5 / 3), this.r = 5, fd
             })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
                 pelletCounter += 1, pelletCounter > pelletMax && (this.flagged = !0), this.c = c, this.t = 140 - (0 | 40 * Math.random())
             }).on("tick", function() {
@@ -377,7 +377,7 @@
             var fd = new b2FixtureDef;
             return fd.restitution = 1, fd.shape = new b2CircleShape(.3 / 3), this.r = 3, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
-            this.c = "#362F34", this.t = 120
+            this.c = "#362F34", this.t = 180
         }).on("tick", function() {
             this.t -= 1, this.t || (this.flagged = !0)
         })).use(require("../components/draw-circle")(5)).use(require("../components/harmful")(1, 1)).use(require("../components/gravity")).use(require("../components/projectile")({
