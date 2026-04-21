@@ -64,7 +64,7 @@
                 "<space>": "jump",
                 "<mouse 1>": "shoot",
                 "<shift>": "shoot",
-                Q: "explode"
+                Q: "explode",
                 X: "shoot"
             });
         module.exports = bs.component("controllable").on("init", function() {
