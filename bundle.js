@@ -245,7 +245,7 @@
         module.exports = function(options) {
             return options = options || {}, options.key || "shooter", bs.component("projectile").needs("attached").needs("physical").on("init", function() {
                 var self = this;
-                this.counter = 50, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
+                this.counter = 100, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
                     --self.counter || (self.flagged = !0)
                 })
             })
@@ -375,7 +375,7 @@
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = .8, fd.shape = new b2CircleShape(.3 / 3), this.r = 3, fd
+            return fd.restitution = .5, fd.shape = new b2CircleShape(.3 / 3), this.r = 3, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
             this.c = "#362F34", this.t = 240
         }).on("tick", function() {
