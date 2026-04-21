@@ -28,7 +28,7 @@ function pellet(c) {
       },
       function createFixture() {
         var fd = new b2FixtureDef
-        fd.restitution = 2
+        fd.restitution = .8
         fd.shape = new b2CircleShape(0.5/3)
         this.r = 5
         return fd
