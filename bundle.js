@@ -173,7 +173,7 @@
                             dx = p.x - tx;
                         if (Math.abs(dy) + Math.abs(dx) < 20) {
                             var a = Math.atan2(dy, dx);
-                            tempVec.x = 40 * Math.cos(a), tempVec.y = 40 * Math.sin(a), b.body.ApplyImpulse(tempVec, center), b !== this.game.player ? b.trigger("damaged", 3) : b.health += 2
+                            tempVec.x = 40 * Math.cos(a), tempVec.y = 40 * Math.sin(a), b.body.ApplyImpulse(tempVec, center), b !== this.game.player ? b.trigger("damaged", 3) : b.health += 20
                         }
                     }
                     this.game.next(function() {
@@ -245,7 +245,7 @@
         module.exports = function(options) {
             return options = options || {}, options.key || "shooter", bs.component("projectile").needs("attached").needs("physical").on("init", function() {
                 var self = this;
-                this.counter = 10, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
+                this.counter = 100, b2e(Box2D, this.game.world).fixture(this.fixture).on("begin", function() {
                     --self.counter || (self.flagged = !0)
                 })
             })
@@ -375,7 +375,7 @@
             return bd.position = new b2Vec2(0, -5), bd.type = b2Body.b2_dynamicBody, bd.userData = {}, bd.fixedRotation = !0, bd
         }, function() {
             var fd = new b2FixtureDef;
-            return fd.restitution = 2, fd.shape = new b2CircleShape(.3 / 3), this.r = 3, fd
+            return fd.restitution = 1, fd.shape = new b2CircleShape(.3 / 3), this.r = 3, fd
         })).use(require("../components/bounce-burst")).use(bs.component().on("init", function() {
             this.c = "#362F34", this.t = 120
         }).on("tick", function() {
@@ -577,7 +577,7 @@
             n = String(Math.floor(n)), this.ctx.drawImage(round, this.width - 200 - 10, this.height - 48 - 16);
             for (var i = 0; i < n.length; i += 1) this.ctx.drawImage(bignumbers[n.charAt(i)], this.width - 36 * n.length + 36 * i - 18, this.height - 24 - 96 - 32)
         }, Game.prototype.restart = function() {
-            this.flash = 5, this.player.health = 15;
+            this.flash = 5, this.player.health = 20;
             var body = this.player.body;
             this.next(function() {
                 body.SetPosition({
