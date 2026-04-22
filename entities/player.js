@@ -111,6 +111,17 @@ var player = bs.component([
     if (this.controls.jump && this.b2p.jump()) {
       this.pop += 8
     }
+    if (this.controls.spawnBomb) {
+    b = new Bomb,
+    this.game.add(b),
+    b.body.SetPosition(new b2Vec2(this.game.mouse.x, this.game.mouse.y))
+},
+
+    if (this.controls.spawnEnemy) {
+    e = new Enemy,
+    this.game.add(e),
+    e.body.SetPosition(new b2Vec2(this.game.mouse.x, this.game.mouse.y))
+},
     this.rotating = ((abs(this.body.m_linearVelocity.y)) > 0.2)
 
     tempPosition[0] = round(this.b2Pos.x)
