@@ -15,6 +15,8 @@ var controls = require('kb-controls')({
   , '<mouse 1>': 'shoot'
   , '<shift>': 'shoot'
   , 'X': 'shoot'
+  , 'B': 'spawnBomb'
+  , 'E': 'spawnEnemy'
 })
 
 module.exports = bs.component('controllable')
