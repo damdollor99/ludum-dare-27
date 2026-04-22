@@ -66,7 +66,7 @@
                 "<shift>": "shoot",
                 X: "shoot",
                 B: "spawnBomb",
-                N: "spawnEnemy"
+                E: "spawnEnemy"
             });
         module.exports = bs.component("controllable").on("init", function() {
             this.controlling = !0, this.controls = controls
