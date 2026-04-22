@@ -64,9 +64,7 @@
                 "<space>": "jump",
                 "<mouse 1>": "shoot",
                 "<shift>": "shoot",
-                X: "shoot",
-                B: "spawnBomb",
-                E: "spawnEnemy"
+                X: "shoot"
             });
         module.exports = bs.component("controllable").on("init", function() {
             this.controlling = !0, this.controls = controls
@@ -447,7 +445,7 @@
             }).on("tick", function() {
                 this.body.SetActive(!0), this.body.SetAwake(!0), this.health = this.health < 0 ? 0 : this.health < 20 ? this.health : 20;
                 var xspd = this.body.m_linearVelocity.x = this.controls.left && !this.blockedLeft ? -14 : this.controls.right && !this.blockedRight ? 14 : 0;
-                this.game.ready = this.game.ready || xspd, this.pop *= .95, this.flinch *= .97, this.rotating ? (this.rotation += xspd > 0 ? .18 : 0 > xspd ? -.18 : this.lastangle > 0 ? .18 : -.18, this.lastangle = xspd || this.lastangle) : this.rotation = 0, this.shootTimer > 0 ? this.shootTimer -= 1 : this.controls.shoot && this.fireBullet(),this.controls.jump && this.b2p.jump() && (this.pop += 8), this.controls.spawnBomb && (this.game.add(new Bomb),new Bomb.body.SetPosition(new b2Vec2(this.game.mouse.x, this.game.mouse.y))), this.controls.spawnEnemy && (this.game.add(new Enemy), new Enemy.body.SetPosition(new b2Vec2(this.game.mouse.x, this.game.mouse.y))),  this.rotating = abs(this.body.m_linearVelocity.y) > .2, tempPosition[0] = round(this.b2Pos.x), tempPosition[1] = round(this.b2Pos.y), this.pop = this.pop > 8 ? 8 : this.pop, this.game.field.move(tempPosition)
+                this.game.ready = this.game.ready || xspd, this.pop *= .95, this.flinch *= .97, this.rotating ? (this.rotation += xspd > 0 ? .18 : 0 > xspd ? -.18 : this.lastangle > 0 ? .18 : -.18, this.lastangle = xspd || this.lastangle) : this.rotation = 0, this.shootTimer > 0 ? this.shootTimer -= 1 : this.controls.shoot && this.fireBullet(),this.controls.jump && this.b2p.jump() && (this.pop += 8), this.rotating = abs(this.body.m_linearVelocity.y) > .2, tempPosition[0] = round(this.b2Pos.x), tempPosition[1] = round(this.b2Pos.y), this.pop = this.pop > 8 ? 8 : this.pop, this.game.field.move(tempPosition)
             }).on("draw", function(ctx, game) {
                 var x = 30 * this.b2p.body.m_xf.position.x - game.camera.pos[0],
                     y = 30 * this.b2p.body.m_xf.position.y - game.camera.pos[1];
